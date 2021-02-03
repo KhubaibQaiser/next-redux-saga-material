@@ -11,3 +11,4 @@ tsconfig.json
 index.d.ts
 .eslintrc.js
 public/firebase-messaging-sw.js
+next.config.js
