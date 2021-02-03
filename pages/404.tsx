@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const ErrorPage = () => <h1 style={{ textAlign: 'center' }}>Error Page</h1>;
+const ErrorPage = () => <h1 style={{ textAlign: "center" }}>Error Page</h1>;
 
 export default ErrorPage;

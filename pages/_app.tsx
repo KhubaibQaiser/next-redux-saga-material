@@ -1,17 +1,22 @@
-import '../src/app/styles/globals.css';
+import "../src/app/styles/globals.css";
 
-import Head from 'next/head';
-import { AppProps } from 'next/app';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../src/app/styles/theme';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { FC } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+import theme from "../src/app/styles/theme";
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
         <title>Web Architecture</title>
-        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -19,6 +24,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default MyApp;

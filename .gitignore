@@ -40,3 +40,4 @@ yarn-error.log*
 # Service worker env
 /public/swenv.js
 *.lock
+yarn-error.log

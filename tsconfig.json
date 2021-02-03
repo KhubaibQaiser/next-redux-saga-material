@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -16,14 +15,29 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "paths": {
+      "@components/*": ["app/components/*"],
+      "@config/*": ["app/config/*"],
+      "@constants/*": ["app/constants/*"],
+      "@hoc/*": ["app/hoc/*"],
+      "@redux/*": ["domain/data/*"],
+      "@hooks/*": ["app/hooks/*"],
+      "@services/*": ["data/services/*"],
+      "@styles/*": ["app/styles/*"],
+      "@types/*": ["app/types/*"],
+      "@common/*": ["common/*"],
+      "@utils/*": ["common/utils/*"],
+      "@public": ["./public"]
+    }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", ".eslintrc.js"]
 }

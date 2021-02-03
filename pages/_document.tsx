@@ -1,22 +1,37 @@
-import { ServerStyleSheets } from '@material-ui/core/styles';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
-import React from 'react';
-import theme from '../src/app/styles/theme';
+import { ServerStyleSheets } from "@material-ui/core/styles";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
+
+import theme from "../src/app/styles/theme";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en'>
+      <Html lang="en">
         <Head>
           {/*
            * PWA primary color
            * Need to replace 'content' value with the theme e.g. theme.palette.brand.main
            */}
-          <meta name='theme-color' content={theme.palette.primary.main} />
-          <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
-          <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
-          <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
-          <link rel='manifest' href='/site.webmanifest' />
+          <meta name="theme-color" content={theme.palette.primary.main} />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/site.webmanifest" />
         </Head>
         <body>
           <Main />
@@ -66,6 +81,9 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
   };
 };

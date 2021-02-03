@@ -1,6 +1,6 @@
-import NextErrorComponent from 'next/error';
+import NextErrorComponent from "next/error";
 
-const Error = ({ statusCode, hasGetInitialPropsRun, err }: { statusCode: number; hasGetInitialPropsRun: boolean; err: unknown }): unknown => {
+const Error = ({ statusCode }: { statusCode: number }): unknown => {
   /*
    * Integrate Sentry Here
    * if (!hasGetInitialPropsRun && err) {
