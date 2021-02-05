@@ -74,5 +74,6 @@ module.exports = {
     ],
     "import/prefer-default-export": 0,
     camelcase: "off",
+    "import/no-cycle": 0,
   },
 };
