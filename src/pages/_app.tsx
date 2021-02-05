@@ -7,7 +7,7 @@ import Head from "next/head";
 import { FC, useEffect } from "react";
 
 import theme from "../app/styles/theme";
-import ReduxWrapper from "../data/store";
+import ReduxWrapper from "../domain/store";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
