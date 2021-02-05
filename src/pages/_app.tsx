@@ -4,11 +4,18 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import theme from "../app/styles/theme";
+import ReduxWrapper from "../data/store";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+  useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    jssStyles?.parentElement?.removeChild(jssStyles);
+  }, []);
+
   return (
     <>
       <Head>
@@ -26,4 +33,4 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default ReduxWrapper.withRedux(MyApp);
