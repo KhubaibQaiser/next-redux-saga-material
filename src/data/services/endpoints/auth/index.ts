@@ -1,10 +1,10 @@
+import api from "@services/api/";
 import iApiResponse from "@services/api/types";
 
-import api from "../../index";
 import { iLoginRequest, iLoginResponse } from "./types";
 import * as ApiUrls from "./url";
 
-export const login = ({
+export const loginApi = ({
   username,
   password,
 }: iLoginRequest): iApiResponse<iLoginResponse> => {

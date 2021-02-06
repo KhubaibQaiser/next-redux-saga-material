@@ -2,21 +2,24 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { createWrapper, MakeStore } from "next-redux-wrapper";
 import { AnyAction, Reducer, Store } from "redux";
 import { createLogger } from "redux-logger";
+import createSagaMiddleware, { Task } from "redux-saga";
 
-import RootReducer from "./reducers";
+import RootReducer, { RootState } from "./reducers";
+import RootSaga from "./sagas";
 
-export type RootState = ReturnType<typeof RootReducer>;
-export type iAppStore = Store;
-
-// Extend interface with saga or persistor
-// export interface iAppStore extends Store {
-// }
+export interface iAppStore extends Store {
+  sagaTask?: Task;
+}
 
 const makeConfiguredStore = (
   reducer: Reducer<RootState, AnyAction>
 ): iAppStore => {
   // Add any additional middlewares e.g. saga middleware. Defaults to thunk
-  const middleware = [...getDefaultMiddleware()];
+  const sagaMiddleware = createSagaMiddleware();
+  const middleware = [
+    ...getDefaultMiddleware({ thunk: false }),
+    sagaMiddleware,
+  ];
   if (process.env.NODE_ENV !== "production") {
     middleware.push(createLogger());
   }
@@ -26,6 +29,7 @@ const makeConfiguredStore = (
     devTools: true,
   });
   const appStore: iAppStore = store;
+  sagaMiddleware.run(RootSaga);
   return appStore;
 };
 
